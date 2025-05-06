@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - PVZ Cinemas</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="home.html"><img src="../assets/images/logo.png" alt="PVZ Cinemas Logo"><h2>PVZ Cinemas</h2></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="seats.html">Seats</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="review.html">Reviews</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="login.html">Signup/Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Reviews for currently streaming movies!</h1>
+        <div class="floating-review">
+            <h2>The Conjuring</h2><br>
+            <img src="../assets/images/movie6.jpg" alt="The Conjuring">
+            <p>One of the best horror movies I have seen in recent years. James Wan did a great job of creating a new horror universe. I like the story and telling of the movie. All the characters are lovable and you will be a fan of Ed and Lorraine Warren. ~ A. B.</p><br>
+            <button onclick="upVote()">Upvote</button>
+        </div>
+        <div class="floating-review">
+            <h2>Avengers: Infinity War</h2><br>
+            <img src="../assets/images/movie2.jpg" alt="Avengers: Infinity War">
+            <p>They did it. They really did it. They pulled off Avengers: Infinity War. How did they do it? I don't know, and I don't care. They did, and I'm beyond happy. ~ D. J. </p><br>
+            <button onclick="upVote()">Upvote</button>
+        </div>
+        <div class="floating-review">
+            <h2>Avengers: Endgame</h2><br>
+            <img src="../assets/images/movie1.jpg" alt="Avengers: Endgame">
+            <p>Where to begin, where to begin! You know a movie is outstanding when the end credits alone are more epic than the majority of films released in the last 20 years! ~ L. R. </p><br>
+            <button onclick="upVote()">Upvote</button>
+        </div>
+    </div>
+    
+    <script src="../assets/js/script.js"></script>
+    <script>
+        function upVote() {
+            alert("Thank you for upvoting!");
+        }
+    </script>
+</body>
+</html>

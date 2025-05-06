@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics - PVZ Cinemas</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="home.html"><img src="../assets/images/logo.png" alt="PVZ Cinemas Logo"><h2>PVZ Cinemas</h2></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="seats.html">Seats</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="review.html">Reviews</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="login.html">Signup/Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h1>Movie Genre Popularity</h1>
+        <div class="chart-container">
+            <canvas id="pieChart" width="600" height="400"></canvas>
+        </div>
+        
+        <h1>Movies by Category</h1>
+        <div class="tab">
+            <button class="tablinks" onclick="openCategory(event, 'Action')" id="defaultOpen">Action</button>
+            <button class="tablinks" onclick="openCategory(event, 'Horror')">Horror</button>
+            <button class="tablinks" onclick="openCategory(event, 'Comedy')">Comedy</button>
+            <button class="tablinks" onclick="openCategory(event, 'Drama')">Drama</button>
+        </div>
+        
+        <div id="Action" class="tabcontent">
+            <h3>Action Movies</h3>
+            <div class="movie-list">
+                <div class="movie-item">
+                    <img src="../assets/images/movie1.jpg" alt="Avenger Endgame" onclick="openModal(this)" class="modal-img">
+                    <h4>Avenger Endgame</h4>
+                </div>
+                <div class="movie-item">
+                    <img src="../assets/images/movie2.jpg" alt="Avengers: Infinity War" onclick="openModal(this)" class="modal-img">
+                    <h4>Avengers: Infinity War</h4>
+                </div>
+                <div class="movie-item">
+                    <img src="../assets/images/movie3.jpg" alt="Deadpool" onclick="openModal(this)" class="modal-img">
+                    <h4>Deadpool</h4>
+                </div>
+                <div class="movie-item">
+                    <img src="../assets/images/movie4.jpg" alt="Monkey Man" onclick="openModal(this)" class="modal-img">
+                    <h4>Monkey Man</h4>
+                </div>
+            </div>
+        </div>
+        
+        <div id="Horror" class="tabcontent">
+            <h3>Horror Movies</h3>
+            <div class="movie-list">
+                <div class="movie-item">
+                    <img src="../assets/images/movie5.jpg" alt="Jennifer's Body" onclick="openModal(this)" class="modal-img">
+                    <h4>Jennifer's Body</h4>
+                </div>
+                <div class="movie-item">
+                    <img src="../assets/images/movie6.jpg" alt="The Conjuring" onclick="openModal(this)" class="modal-img">
+                    <h4>The Conjuring</h4>
+                </div>
+                <div class="movie-item">
+                    <img src="../assets/images/movie7.jpg" alt="Insidious" onclick="openModal(this)" class="modal-img">
+                    <h4>Insidious</h4>
+                </div>
+            </div>
+        </div>
+        
+        <div id="Comedy" class="tabcontent">
+            <h3>Comedy Movies</h3>
+            <p>No comedy movies currently showing.</p>
+        </div>
+        
+        <div id="Drama" class="tabcontent">
+            <h3>Drama Movies</h3>
+            <p>No drama movies currently showing.</p>
+        </div>
+    </div>
+    
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="caption"></div>
+    </div>
+    
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

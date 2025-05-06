@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - PVZ Cinemas</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="home.html"><img src="../assets/images/logo.png" alt="PVZ Cinemas Logo"><h2>PVZ Cinemas</h2></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="seats.html">Seats</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="review.html">Reviews</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="login.html">Signup/Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Reach us out!</h1>
+        <div class="floating-contact">
+            <h2>Customer Support</h2><br>
+            <img src="../assets/images/cs.jpg" alt="Customer Support"><br>
+            <br><p>If you're unable to login into your account, please contact our support team. A ticket will be created and one of our support team member will assist you via email.</p><br>
+            <button onclick="custSupp()">Customer Support</button>
+        </div>
+        <div class="floating-contact">
+            <h2>Help Center</h2><br>
+            <img src="../assets/images/hc.jpg" alt="Customer Support"><br>
+            <br><p>Navigate our help center articles for assistance on various platform and partnership topics. From quick FAQs to in-dept guides, we have you covered.</p><br>
+            <button onclick="HelpCent()">Visit our Help Center</button>
+        </div>
+    </div>
+    <script>
+        function custSupp() {
+            alert("Thank you for calling Customer Support!");
+        }
+        function HelpCent() {
+            alert("Thank you for visiting our Help Center!");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PVZ Cinemas Login</title>
+        <link rel="stylesheet" href="../assets/css/styles.css">
+        <style>
+            .char-counter {
+                margin-top: 5px;
+                margin-bottom: 10px;
+                font-weight: bold;
+                color: #D35400;
+                display: block;
+            }
+            
+            .theme-options {
+                margin: 15px 0;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            
+            .theme-options legend {
+                padding: 0 10px;
+            }
+            
+            .theme-options label {
+                margin-right: 15px;
+                cursor: pointer;
+            }
+            
+            .error-message {
+                color: #ff0000;
+                font-size: 14px;
+                margin-top: 2px;
+                display: none;
+            }
+            
+            input[type="submit"] {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 20px;
+            }
+            
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+            
+            input:invalid {
+                border: 2px solid red;
+            }
+            
+            input:valid {
+                border: 1px solid #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo-container">
+                <a href="home.html"><img src="../assets/images/logo.png" alt="PVZ Cinemas Logo"><h2>PVZ Cinemas</h2></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="seats.html">Seats</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                    <li><a href="stats.html">Stats</a></li>
+                    <li><a href="login.html">Signup/Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <fieldset class="theme-options">
+            <legend>Choose Form Background Color</legend>
+            <input type="radio" id="red-theme" name="theme-color" value="red">
+            <label for="red-theme">Red</label>
+            
+            <input type="radio" id="green-theme" name="theme-color" value="green">
+            <label for="green-theme">Green</label>
+            
+            <input type="radio" id="blue-theme" name="theme-color" value="blue">
+            <label for="blue-theme">Blue</label>
+            
+            <input type="radio" id="dark-theme" name="theme-color" value="dark">
+            <label for="dark-theme">Dark</label>
+        </fieldset>
+        
+        <form action="../php/welcome.php" name="myForm" method="POST" onsubmit="return validateForm()" id="user-form">
+            <fieldset>
+                <legend>Enter your Information:</legend>
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required>
+                <span id="first_name_error" class="error-message">Please enter your first name</span><br>
+                
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
+                <span id="last_name_error" class="error-message">Please enter your last name</span><br>
+    
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span id="email_error" class="error-message">Please enter a valid email address</span><br>
+                
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="1" max="120" required>
+                <span id="age_error" class="error-message">Please enter a valid age (1-120)</span><br><br>
+    
+                <label for="gender">Gender:</label><br>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+                <span id="gender_error" class="error-message">Please select a gender</span><br><br>
+    
+                <label for="city">City:</label>
+                <select id="city" name="city" required>
+                    <option value="">Select City</option>
+                    <optgroup label="Ohio">
+                        <option value="Toledo">Toledo</option>
+                        <option value="Bowling Green">Bowling Green</option>
+                        <option value="Cleveland">Cleveland</option>
+                    </optgroup>
+                    <optgroup label="Florida">
+                        <option value="Miami">Miami</option>
+                        <option value="Orlando">Orlando</option>
+                        <option value="Tampa">Tampa</option>
+                    </optgroup>
+                    <optgroup label="California">
+                        <option value="LA">LA</option>
+                        <option value="Las Vegas">Las Vegas</option>
+                        <option value="San Francisco">San Francisco</option>
+                    </optgroup>
+                </select>
+                <span id="city_error" class="error-message">Please select a city</span><br>
+    
+                <label for="interests">Interests:</label><br>
+                <input type="checkbox" id="Horror" name="interests[]" value="Horror">
+                <label for="Horror">Horror</label>
+                <input type="checkbox" id="Biopic" name="interests[]" value="Biopic">
+                <label for="Biopic">Biopic</label>
+                <input type="checkbox" id="Sci-Fi" name="interests[]" value="Sci-Fi">
+                <label for="Sci-Fi">Sci-Fi</label><br><br>
+    
+                <label for="comments">Comments:</label><br>
+                <textarea id="comments" name="comments" rows="4" cols="50" onkeyup="countChars()"></textarea>
+                <span class="char-counter">Characters entered: <span id="char-count">0</span></span>
+    
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form>
+        
+        <script src="../assets/js/script.js"></script>
+        <script>
+            function countChars() {
+                const comments = document.getElementById('comments').value;
+                document.getElementById('char-count').textContent = comments.length;
+            }
+            
+            function validateForm() {
+                let isValid = true;
+                
+                const firstName = document.getElementById('first_name').value.trim();
+                if (firstName === '') {
+                    document.getElementById('first_name_error').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('first_name_error').style.display = 'none';
+                }
+                
+                const lastName = document.getElementById('last_name').value.trim();
+                if (lastName === '') {
+                    document.getElementById('last_name_error').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('last_name_error').style.display = 'none';
+                }
+                
+                const email = document.getElementById('email').value.trim();
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    document.getElementById('email_error').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('email_error').style.display = 'none';
+                }
+                
+                const age = document.getElementById('age').value;
+                if (age === '' || isNaN(age) || age < 1 || age > 120) {
+                    document.getElementById('age_error').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('age_error').style.display = 'none';
+                }
+                
+                const gender = document.querySelector('input[name="gender"]:checked');
+                if (!gender) {
+                    document.getElementById('gender_error').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('gender_error').style.display = 'none';
+                }
+                
+                const city = document.getElementById('city').value;
+                if (city === '') {
+                    document.getElementById('city_error').style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('city_error').style.display = 'none';
+                }
+                
+                return isValid;
+            }
+            
+            const themeRadios = document.querySelectorAll('input[name="theme-color"]');
+            const userForm = document.getElementById('user-form');
+            
+            themeRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    userForm.style.backgroundColor = '';
+                    userForm.style.color = '';
+                    
+                    switch(this.value) {
+                        case 'red':
+                            userForm.style.backgroundColor = '#ffdddd';
+                            break;
+                        case 'green':
+                            userForm.style.backgroundColor = '#ddffdd';
+                            break;
+                        case 'blue':
+                            userForm.style.backgroundColor = '#ddddff';
+                            break;
+                        case 'dark':
+                            userForm.style.backgroundColor = '#333333';
+                            userForm.style.color = '#ffffff';
+                            break;
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
